@@ -63,7 +63,7 @@ for o, a in opts:
       sender_addr = a
    elif o in ("-e", "--evernote-user"):
       evernote_addr = a
-   elif o in ("-e", "--maximum"):
+   elif o in ("-m", "--maximum"):
       message_limit = int(a)
    elif o in ("-n", "--notebook"):
       notebook = a
