@@ -1,4 +1,5 @@
-export_gr2evernote
+
+export2enex and export_gr2evernote
 ==================
 
 Exports previously-starred articles from Google Reader to Evernote
@@ -12,6 +13,18 @@ a service that I have more control over.  Since Evernote stores your data
 locally on your devices, I've found it's a good service for keeping my 
 data in the cloud without running the risk of losing it if/when Evernote
 goes away.
+
+export2enex takes the exported JSON file produced by Google's Takeout
+(namely, 'starred.json') and dumps it into Evernote, using Evernote's 
+export file format (.enex).  Unlike export_gr2evernote.py, this approach
+does a pretty good job of preserving the formatting of the note.  Also,
+since it's all local, there are no limits to how many notes you can 
+import in one go.  Unless you have a compelling reason to use the 
+e-mail submission script (like, say, you want ugly notes with a bunch
+of extraneous markup), you should use this script to export your Reader
+JSON into Evernote enex format.  Once you have it in enex format, you
+can import it into Evernote using the desktop client.
+    Usage: export2enex.py [options] > filename.enex
 
 export_gr2evernote.py takes the exported JSON file produced by Google's 
 Takeout (namely, 'starred.json') and dumps it into Evernote, using Evernote's 
