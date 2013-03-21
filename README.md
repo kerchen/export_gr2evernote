@@ -1,8 +1,11 @@
-
 export2enex and export_gr2evernote
 ==================
 
 Exports previously-starred articles from Google Reader to Evernote
+
+Executive Summary: Unless you like crappy imported notes, you should use export2enex.py.
+export_gr2evernote.py uses Evernote's e-mail submission feature, which mangles
+any HTML in the note, rendering it a pile of markup gibberish.
 
 Run with -h to see available options.
 
