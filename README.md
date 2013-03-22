@@ -17,6 +17,16 @@ locally on your devices, I've found it's a good service for keeping my
 data in the cloud without running the risk of losing it if/when Evernote
 goes away.
 
+export2HTMLFiles takes the exported JSON file produced by Google's Takeout
+(namely, 'starred.json') and dumps each starred entry in a numbered html file,
+names as per title of the entry. The html files can then be simply dropped into the
+Evernote desktop client.
+This approach also does a good job of preserving the formatting of the note, and
+it tends to be more consistent (more than 3000 entries from more than 200 blogs
+have been imported using this method under OSX, where the other methods failed).
+Since it's all local, there are no limits to how many notes you can  import in one go.
+    Usage: export2HTMLFiles.py
+
 export2enex takes the exported JSON file produced by Google's Takeout
 (namely, 'starred.json') and dumps it into Evernote, using Evernote's 
 export file format (.enex).  Unlike export_gr2evernote.py, this approach
