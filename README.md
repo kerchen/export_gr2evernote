@@ -3,7 +3,8 @@ export2enex and export_gr2evernote
 
 Exports previously-starred articles from Google Reader to Evernote
 
-Executive Summary: Unless you like crappy imported notes, you should use export2enex.py.
+Executive Summary: Three methods are given below - unless you like crappy imported notes,
+you should use either the export2enex.py or the export2HTMLFiles methods below.
 export_gr2evernote.py uses Evernote's e-mail submission feature, which mangles
 any HTML in the note, rendering it a pile of markup gibberish.
 
@@ -17,7 +18,7 @@ locally on your devices, I've found it's a good service for keeping my
 data in the cloud without running the risk of losing it if/when Evernote
 goes away.
 
-export2HTMLFiles takes the exported JSON file produced by Google's Takeout
+**export2HTMLFiles** takes the exported JSON file produced by Google's Takeout
 (namely, 'starred.json') and dumps each starred entry in a numbered html file,
 names as per title of the entry. The html files can then be simply dropped into the
 Evernote desktop client.
@@ -27,7 +28,7 @@ have been imported using this method under OSX, where the other methods failed).
 Since it's all local, there are no limits to how many notes you can  import in one go.
     Usage: export2HTMLFiles.py
 
-export2enex takes the exported JSON file produced by Google's Takeout
+**export2enex** takes the exported JSON file produced by Google's Takeout
 (namely, 'starred.json') and dumps it into Evernote, using Evernote's 
 export file format (.enex).  Unlike export_gr2evernote.py, this approach
 does a pretty good job of preserving the formatting of the note.  Also,
@@ -39,7 +40,7 @@ JSON into Evernote enex format.  Once you have it in enex format, you
 can import it into Evernote using the desktop client.
     Usage: export2enex.py [options] > filename.enex
 
-export_gr2evernote.py takes the exported JSON file produced by Google's 
+**export_gr2evernote.py** takes the exported JSON file produced by Google's 
 Takeout (namely, 'starred.json') and dumps it into Evernote, using Evernote's 
 e-mail note submission feature.  It doesn't do any formatting of what it
 sends to Evernote, so it will most likely look pretty ugly in Evernote.
