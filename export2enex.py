@@ -25,7 +25,7 @@ import io
 import getopt, sys
 import os.path
 import codecs
-
+import time
 
 def usage():
    print "\nOptions:"
@@ -82,6 +82,12 @@ for s in item_list:
    subject = ""
    if 'title' in s.keys():
       subject = s["title"].encode(char_encoding, 'replace')
+   if 'published' in s.keys():
+      published_epoch = s["published"]
+      published_datetime = time.strftime("%Y%m%dT%H%M%SZ", time.localtime(published_epoch) )
+   if 'updated' in s.keys():
+      updated_epoch = s["updated"]
+      updated_datetime = time.strftime("%Y%m%dT%H%M%SZ", time.localtime(updated_epoch) )
    if notebook:
       subject = subject + " @" + notebook
 
@@ -102,6 +108,10 @@ for s in item_list:
       d = s["content"]
       msg_body = msg_body + d["content"].encode(char_encoding, 'replace')
    msg_body = msg_body + "</en-note>]]>\r\n</content>\r\n"
+   if published_datetime:
+      msg_body = msg_body + "<created>" + published_datetime + "</created>"
+   if updated_datetime:
+      msg_body = msg_body + "<updated>" + updated_datetime + "</updated>"
    msg_body = msg_body + "<note-attributes><source>web.clip</source><source-url>" + msg_url + "</source-url></note-attributes>"
    msg_body = msg_body + "</note>\r\n"
 
