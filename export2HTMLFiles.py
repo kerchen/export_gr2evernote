@@ -25,6 +25,24 @@ import getopt, sys
 import os.path
 import string
 
+def usage():
+   print "Converts exported starred articles from a Google Reader export file."
+   print "The file 'starred.json' must be in the directory that this script is"
+   print "invoked from.  Each article will be exported to its own HTML file."
+   print "\nOptions:"
+   print "-h, --help: Print this message and exit."
+
+try:
+   opts, args = getopt.getopt( sys.argv[1:], "h", ["help"])
+except getopt.GetoptError as err:
+   print str(err) 
+   usage()
+   sys.exit(2)
+
+for o, a in opts:
+   if o in ("-h", "--help"):
+      usage()
+      sys.exit()
 
 # Provides a decent filename. A variation of: http://stackoverflow.com/a/295146/1318347
 def cleanFileName(value):
