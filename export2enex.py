@@ -20,6 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 import smtplib
+from xml.sax.saxutils import escape
 import json
 import io
 import getopt, sys
@@ -112,7 +113,7 @@ for s in item_list:
       msg_body = msg_body + "<created>" + published_datetime + "</created>"
    if updated_datetime:
       msg_body = msg_body + "<updated>" + updated_datetime + "</updated>"
-   msg_body = msg_body + "<note-attributes><source>web.clip</source><source-url>" + msg_url + "</source-url></note-attributes>"
+   msg_body = msg_body + "<note-attributes><source>web.clip</source><source-url>" + escape(msg_url) + "</source-url></note-attributes>"
    msg_body = msg_body + "</note>\r\n"
 
    print(msg_body)
