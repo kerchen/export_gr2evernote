@@ -80,7 +80,7 @@ print('<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export2.
 print('<en-export export-date="20130320T150950Z" application="Evernote" version="Evernote Mac 5.0.6 (400960)">')
 
 for s in item_list:
-   subject = ""
+   subject = "none"
    if 'title' in s.keys():
       subject = s["title"].encode(char_encoding, 'replace')
    if 'published' in s.keys():
