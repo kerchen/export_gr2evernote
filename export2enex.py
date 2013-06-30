@@ -21,6 +21,7 @@
 # 
 import smtplib
 from xml.sax.saxutils import escape
+from tidylib import tidy_fragment
 import json
 import io
 import getopt, sys
@@ -104,10 +105,14 @@ for s in item_list:
       msg_url = d["href"].encode(char_encoding, 'replace')
    if 'summary' in s.keys():
       d = s["summary"]
-      msg_body = msg_body + d["content"].encode(char_encoding, 'replace')
+      dirtyHtml = d["content"]
+      cleanHtml, errors = tidy_fragment(dirtyHtml)
+      msg_body = msg_body + cleanHtml.encode(char_encoding, 'replace')
    if 'content' in s.keys():
       d = s["content"]
-      msg_body = msg_body + d["content"].encode(char_encoding, 'replace')
+      dirtyHtml = d["content"]
+      cleanHtml, errors = tidy_fragment(dirtyHtml)
+      msg_body = msg_body + cleanHtml.encode(char_encoding, 'replace')
    msg_body = msg_body + "</en-note>]]>\r\n</content>\r\n"
    if published_datetime:
       msg_body = msg_body + "<created>" + published_datetime + "</created>"
