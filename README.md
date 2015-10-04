@@ -58,7 +58,7 @@ I haven't investigated that too closely yet.
 Note that if you have a lot of starred articles, you can blow through your 
 daily e-mail upload limit quite easily!  As of this writing, free accounts 
 have a limit of 50 e-mails per day; premium accounts have a limit of 250.
-To accomodate that limitation, the script keeps track of where it left off 
+To accommodate that limitation, the script keeps track of where it left off 
 each day (by writing a python pickle file in the current working directory) 
 so that when you run it on subsequent days, you can simply use the --continue 
 option to continue your article dump.
